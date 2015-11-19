@@ -4,10 +4,10 @@ float scale = .1;
 float sz = 3;
 
 void setup() {
-  size(500, 281);
+  size(330, 600);
 
   //load picture into PImage
-  dog = loadImage("mayim.jpg");
+  dog = loadImage("mayim2.jpg");
 
   //draw image from center
   imageMode(CENTER);
@@ -17,11 +17,19 @@ void setup() {
 }
 
 void draw() {
+  //set sz based on mouseY
   sz = map(mouseY, 0, height, 1, 20);
-  for (int i = 0; i < 30; i++) {
+
+  //repeat so more circles are drawn per frame. this speeds things up
+  for (int i = 0; i < 200; i++) {
+    //pick random integers for x and y
     int x = int(random(width));
     int y = int(random(height));
+
+    //set fill to the color of the "dog" image at x,y
     fill(dog.get(x, y));
+
+    //draw an ellipse
     ellipse(x, y, sz, sz);
   }
 }
