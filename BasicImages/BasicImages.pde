@@ -3,7 +3,7 @@ PImage dog;
 float scale = .1;
 
 void setup() {
-  size(800, 600);
+  size(500, 281);
 
   //load picture into PImage
   dog = loadImage("mayim.jpg");
@@ -13,7 +13,7 @@ void setup() {
 }
 
 void draw() {
-  scale = random(.01, .8);
-  //display image
-  image(dog, random(width), random(height), dog.width * scale, dog.height * scale);
+  background(dog);
+  fill(255, 0, 0);
+  ellipse(mouseX, mouseY, 10, 10);
 }
